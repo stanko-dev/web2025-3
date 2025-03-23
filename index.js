@@ -1,4 +1,5 @@
 const { program } = require('commander');
+const fs = require('fs');
 
 
 program
@@ -16,10 +17,28 @@ if (!options.input) {
 }
 
 
-const fs = require('fs');
+let data;
 try {
-  fs.readFileSync(options.input, 'utf8');
+  const fileContent = fs.readFileSync(options.input, 'utf8');
+  data = JSON.parse(fileContent);
 } catch (error) {
   console.error('Cannot find input file');
   process.exit(1);
+}
+
+
+const filteredData = data.filter(item => item.parent === 'BS3_BanksLiab');
+
+
+const result = filteredData
+  .map(item => `${item.txten}:${item.value}`)
+  .join('\n');
+
+
+if (options.output) {
+  fs.writeFileSync(options.output, result, 'utf8');
+}
+
+if (options.display) {
+  console.log(result);
 }
