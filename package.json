@@ -4,7 +4,20 @@
     "description": "lab3",
     "main": "index.js",
     "scripts": {
-      "start": "node index.js"
+        "start": "node index.js"
     },
-    "author": "stanko-dev"
-  }
+    "author": "stanko-dev",
+    "dependencies": {
+        "commander": "^13.1.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/stanko-dev/web2025-3.git"
+    },
+    "keywords": [],
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/stanko-dev/web2025-3/issues"
+    },
+    "homepage": "https://github.com/stanko-dev/web2025-3#readme"
+}
